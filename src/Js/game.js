@@ -1,4 +1,4 @@
-import './assets/style.scss';
+import '../assets/style.scss';
 import Phaser from 'phaser';
 
 const config = {
@@ -14,14 +14,14 @@ const config = {
 
 const game = new Phaser.Game(config);
 
-function preload ()
-{
+function preload () {
+
 }
 
-function create ()
-{
+function create () {
+
 }
 
-function update ()
-{
+function update () {
+  
 }
