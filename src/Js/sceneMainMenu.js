@@ -25,6 +25,13 @@ export default class SceneMainMenu extends Phaser.Scene {
   }
 
   create() {
-    this.scene.start("SceneMain");
+    
+    this.btnPlay = this.add.sprite(
+      this.game.config.width * 0.5,
+      this.game.config.height * 0.5,
+      "sprBtnPlay"
+    );
+
+    this.btnPlay.setInteractive();
   }
 }

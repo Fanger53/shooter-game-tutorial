@@ -1,4 +1,4 @@
-import {Player, ChaserShip, CarrierShip, GunShip, PlayerLaser} from './entities';
+import {Player, ChaserShip, CarrierShip, GunShip, PlayerLaser, ScrollingBackground} from './entities';
 import sprBg0 from '../assets/img/sprBg0.png';
 import sprBg1 from '../assets/img/sprBg1.png';
 import sprExplosion from '../assets/img/sprExplosion.png';
@@ -80,6 +80,12 @@ this.load.audio('sndLaser', sndLaser);
       ],
       laser: this.sound.add("sndLaser")
     };
+
+    this.backgrounds = [];
+      for (var i = 0; i < 5; i++) { // create five scrolling backgrounds
+        var bg = new ScrollingBackground(this, "sprBg0", i * 10);
+        this.backgrounds.push(bg);
+      }
 
     this.player = new Player(
       this,
@@ -236,6 +242,10 @@ this.load.audio('sndLaser', sndLaser);
           laser.destroy();
         }
       }
+    }
+
+    for (var i = 0; i < this.backgrounds.length; i++) {
+      this.backgrounds[i].update();
     }
   }
 
