@@ -2,10 +2,11 @@ import sndBtnOver from '../assets/sounds/sndBtnOver.wav';
 import sndBtnDown from '../assets/sounds/sndBtnDown.wav';
 import sprBtnRestart from '../assets/img/sprBtnRestart.png';
 import sprBtnRestartHover from '../assets/img/sprBtnRestartHover.png';
-import {ScrollingBackground} from './entities';
+import { ScrollingBackground } from './entities';
+
 export default class SceneGameOver extends Phaser.Scene {
   constructor() {
-    super({ key: "SceneGameOver" });
+    super({ key: 'SceneGameOver' });
   }
 
   preload() {
@@ -17,7 +18,7 @@ export default class SceneGameOver extends Phaser.Scene {
   }
 
   create() {
-    this.title = this.add.text(this.game.config.width * 0.5, 128, "GAME OVER", {
+    this.title = this.add.text(this.game.config.width * 0.5, 128, 'GAME OVER', {
       fontFamily: 'monospace',
       fontSize: 48,
       fontStyle: 'bold',
@@ -34,21 +35,21 @@ export default class SceneGameOver extends Phaser.Scene {
     this.btnRestart = this.add.sprite(
       this.game.config.width * 0.5,
       this.game.config.height * 0.5,
-      "sprBtnRestart"
+      'sprBtnRestart'
     );
 
     this.btnRestart.setInteractive();
 
-    this.btnRestart.on("pointerover", function() {
-      this.btnRestart.setTexture("sprBtnRestartHover"); // set the button texture to sprBtnPlayHover
+    this.btnRestart.on('pointerover', function() {
+      this.btnRestart.setTexture('sprBtnRestartHover'); // set the button texture to sprBtnPlayHover
       this.sfx.btnOver.play(); // play the button over sound
     }, this);
 
-    this.btnRestart.on("pointerout", function() {
-      this.setTexture("sprBtnRestart");
+    this.btnRestart.on('pointerout', function() {
+      this.setTexture('sprBtnRestart');
     });
 
-    this.btnRestart.on("pointerdown", function() {
+    this.btnRestart.on('pointerdown', function() {
       this.btnRestart.setTexture('sprBtnRestartDown');
       this.sfx.btnDown.play();
     }, this);
@@ -60,7 +61,7 @@ export default class SceneGameOver extends Phaser.Scene {
 
     this.backgrounds = [];
       for (var i = 0; i < 5; i++) {
-        var keys = ["sprBg0", "sprBg1"];
+        var keys = ['sprBg0', 'sprBg1'];
         var key = keys[Phaser.Math.Between(0, keys.length - 1)];
         var bg = new ScrollingBackground(this, key, i * 10);
         this.backgrounds.push(bg);
